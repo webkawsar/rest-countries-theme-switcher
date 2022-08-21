@@ -23,7 +23,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Countries />} />
             <Route path='/countries' element={<Countries />} />
-            <Route path='/countries/:country' element={<CountryDetails />} />
+            <Route path='/countries/:name' element={<CountryDetails />} />
           </Routes>
         </BrowserRouter>
       </>
