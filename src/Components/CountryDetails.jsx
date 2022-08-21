@@ -37,57 +37,63 @@ const CountryDetails = () => {
 
     return (
         <div style={{backgroundColor: dark? '#202D36' : '#FAFAFA', color: dark ? 'white' : '', height: '90vh'}}>
-            <Container>
-                                
-                <div className="back_btn py-5">
-                    <button className={dark ? 'custom_btn dark_btn' : 'custom_btn light_btn'} onClick={handleClick}>
-                        <FaLongArrowAltLeft /> Back
-                    </button>
-                </div>
-                
-                <div className='d-flex align-items-center justify-content-between'>
+            <Container>           
+                {
+                    !Object.keys(country).length ? <div style={{color: 'red', textAlign: 'center', padding: '50px 0'}}>
+                        <h2>Not to Show Country</h2>
+                    </div> :
                     <div>
-                        <img className='country_img' src={flags?.png} alt="" />
-                    </div>
-                    <div className='d-flex flex-column'>
-                        <div className='top_section'>
-                            <h3 className='mb-4'>{name?.official}</h3>
+                        <div className="back_btn py-5">
+                            <button className={dark ? 'custom_btn dark_btn' : 'custom_btn light_btn'} onClick={handleClick}>
+                                <FaLongArrowAltLeft /> Back
+                            </button>
                         </div>
                         
-                        <div className='middle_section d-flex justify-content-between'>
+                        <div className='d-flex align-items-center justify-content-between'>
                             <div>
-                                <h6>Native Name: {name?.common}</h6>
-                                <h6>Population: {population}</h6>
-                                <h6>Region: {region}</h6>
-                                <h6>Sub Region: {subregion}</h6>
-                                <h6>Capital: {capital}</h6>
-                                
+                                <img className='country_img' src={flags?.png} alt="" />
                             </div>
-                            <div>
-                                <h6>Top Level Domain: {tld}</h6>
-                                <h6>Currencies: {currencies ? Object.keys(currencies).map(cur => cur + ', ') : 'Not Found'}</h6>
-                                <h6>Languages: {languages ? Object.values(languages).map(lang => lang + ', ') : 'Not Found'}</h6>
-                            </div>
-                        </div>
-
-                        <div className='bottom_section'>
-                            <div className='d-flex align-items-center mt-4 flex-wrap'>
-                                <h6>Border Countries: {' '}</h6>
-                                <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
-                                    French
-                                </button>
-
-                                <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
-                                    Germany
-                                </button>
+                            <div className='d-flex flex-column'>
+                                <div className='top_section'>
+                                    <h3 className='mb-4'>{name?.official}</h3>
+                                </div>
                                 
-                                <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
-                                    Netherlands
-                                </button>
+                                <div className='middle_section d-flex justify-content-between'>
+                                    <div>
+                                        <h6>Native Name: {name?.common}</h6>
+                                        <h6>Population: {population}</h6>
+                                        <h6>Region: {region}</h6>
+                                        <h6>Sub Region: {subregion}</h6>
+                                        <h6>Capital: {capital}</h6>
+                                        
+                                    </div>
+                                    <div>
+                                        <h6>Top Level Domain: {tld}</h6>
+                                        <h6>Currencies: {currencies ? Object.keys(currencies).map(cur => cur + ', ') : 'Not Found'}</h6>
+                                        <h6>Languages: {languages ? Object.values(languages).map(lang => lang + ', ') : 'Not Found'}</h6>
+                                    </div>
+                                </div>
+
+                                <div className='bottom_section'>
+                                    <div className='d-flex align-items-center mt-4 flex-wrap'>
+                                        <h6>Border Countries: {' '}</h6>
+                                        <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
+                                            French
+                                        </button>
+
+                                        <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
+                                            Germany
+                                        </button>
+                                        
+                                        <button className={dark ? 'border_btn dark_btn' : 'border_btn light_btn'}>
+                                            Netherlands
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </Container>
         </div>
     );

@@ -27,7 +27,11 @@ const Countries = () => {
             <Container>
                 <Row className='gy-4'>
                     {
-                        countries.map(country => <Country key={country?.name?.common} country={country} />)
+                        countries.length ? countries.map(country => <Country key={country?.name?.common} country={country} />)
+                        : 
+                        <div style={{textAlign: 'center', color: 'red', padding: '100px 0'}}>
+                            <h2>Country is loading</h2>
+                        </div>
                     }
                 </Row>
             </Container>
